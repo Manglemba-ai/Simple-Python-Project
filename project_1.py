@@ -20,4 +20,11 @@ def view_expences():
 def total__expences():
    total = 0
    try:
-      
+      with open("expences.txt", "r") as file:
+         for line in file:
+            amount,_, _ =line.strip().split(",")
+            total += float(amount)
+            print("Total spending :",total)
+   except FileNotFoundError:
+      print("No expenses found.")
+               
