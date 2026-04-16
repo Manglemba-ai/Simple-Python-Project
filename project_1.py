@@ -10,7 +10,7 @@ def add_expense():
 
 def view_expenses():
    try:
-      with open("expenses.txt","a") as file:
+      with open("expenses.txt","r") as file:
          for line in file:
             amount,category,date =line.strip().split(",")
             print(amount,"|",category,"|",date)
