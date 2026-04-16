@@ -4,13 +4,13 @@ def add_expense():
    category = input("Enter your category :")
    date = input("Enter the date :")
 
-   with open("D:\coding\python\expenses.txt","a") as file:
+   with open("expenses.txt","a") as file:
       file.write(f"{amount},{category},{date} \n")
 
 
 def view_expenses():
    try:
-      with open("D:\coding\python\expenses.txt","a") as file:
+      with open("expenses.txt","a") as file:
          for line in file:
             amount,category,date =line.strip().split(",")
             print(amount,"|",category,"|",date)
@@ -20,7 +20,7 @@ def view_expenses():
 def total__expense():
    total = 0
    try:
-      with open("D:\coding\python\expenses.txt", "r") as file:
+      with open("expenses.txt", "r") as file:
          for line in file:
             amount,_, _ =line.strip().split(",")
             total += float(amount)
