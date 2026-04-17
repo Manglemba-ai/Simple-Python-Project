@@ -24,12 +24,36 @@ def calculator():
                 continue
             result = first/second
         print(f"{first} {op} {second} = {result}")
+        history=input("Do you want to save history(yes/no) :").strip().lower()
+        if history in ["yes","y"]:
+            with open("History.txt","a") as file:
+                file.write(f"{first} {op} {second} = {result} \n")
+        elif history in ["no","n"]:
+            print("the history is not saved")
         again = input("do you want to continue (yes/no) :").strip().lower()
         if again in ["yes", "y"]:
             continue
-        elif again in ["no", "n"]:
-            print("Thank you")
+        elif again in ["no", "n"]:    
             break
 
+def view_history():
+    try:
+        with open("History.txt","r")as file:
+            for line in file:
+                print(line)
+    except FileNotFoundError:
+        print("File not found")
 
 calculator()
+History = input("Do you want to see the history(yes/no):")
+if History in ["yes","y"]:
+    view_history()
+elif History in ["no","n"]:
+    print("Thank you ")          
+
+    
+
+
+
+
+
